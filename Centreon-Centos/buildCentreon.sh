@@ -1,15 +1,18 @@
 #!/bin/bash
 
-imgName='centreon2010'
-imgVers='v1.0'
-imgShortName='centreon'
+imgName='centreon2010'          # Image Name
+imgVers='v1.0'                  # Image Version
+imgShortName='centreon'         # Friendly image name used with --name
+httpPort='8080'                 # HTTP port
+httpsPort='4343'                # HTTPS port
 
 # Build image
 echo "Build Image"
 docker build -t $imgName:$imgVers .
 
-echo "First Run"
-docker run -itd --name $imgShortName --restart always -p 8080:80 -p 4443:443 --privileged $imgName:$imgVers /usr/sbin/init  
+# Starting Container
+echo "Start Container"
+docker run -itd --name $imgShortName --restart always -p $httpPort:80 -p $httpsPort:443 --privileged $imgName:$imgVers /usr/sbin/init  
 
 # Connect Network
 echo "Switch Network"
