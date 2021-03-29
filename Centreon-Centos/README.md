@@ -9,7 +9,7 @@ Work Under Progress......
 
 ### Step 1 : Set Variable
 
-** Edit buildCentreon.sh and edit variable **
+**Edit buildCentreon.sh and edit variable**
 
 
 
