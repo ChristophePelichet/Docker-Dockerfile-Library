@@ -28,21 +28,18 @@ httpsPort='4343'                # HTTPS port
 #dockerVolumeClean='0'               # For switch -c : Clean Docker Volume   0 = No / 1 = Yes
 dockerVolumeName='centreon_data'
 
-# Docker Network 
-dockerNetworkCreate='1'             # For switch -b : Create Docker Network  0 = No / 1 = Yes
-dockerNetworkClean='0'              # For switch -c : Clean Docker Volume    0 = No / 1 = Yes
-dockerNetworkName='centreon_default'
+# Docker Network / https://docs.docker.com/engine/reference/commandline/network
+dockerNetCreate='1'                 # Docker network create with switch -b : 0 = No / 1 = Yes
+dockerNetClean='0'                  # Docker network clean with switch -c  : 0 = No / 1 = Yes
+dockerNetName='centreon_default'    # Docker network Name       / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetSub='172.21.0.0/16'        # Docker network subnet     / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetIpR='172.21.0.214/32'      # Docker network IP range   / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetGwa='172.21.0.1'           # Docker network gateway    / https://docs.docker.com/engine/reference/commandline/network_create/
+
 
 #######################################################
 ################### Start Scripts #####################
 #######################################################
-
-# if [ -z $scriptSwitch ]; then
-#     echo " Please choice your script option : "
-#     echo " -b   -> For build image"
-#     echo " -c   -> For clean image"
-# fi
-
 
 case "$1" in
 
@@ -57,30 +54,31 @@ case "$1" in
     #docker volume create $volumeName
 
     # Create Docker network
-    if [ $dockerNetworkCreate == '0' ]; then
+    if [ $dockerNetCreate == '0' ]; then
         echo "Step 3 : No creation of a Docker network"
     else 
         echo "Step 3 : Create Docker network"
 
         # Check if Docker network exist
-        resultDockerNetExist=$(docker network ls | cut -d ' ' -f4 | grep -i $dockerNetworkName)
+        resultDockerNetExist=$(docker network ls | cut -d ' ' -f4 | grep -i $dockerNetName)
 
         if [ -z $resultDockerNetExist ]; then
         docker network create -d bridge \
-        --subnet=172.21.0.0/16 \
-        --ip-range=172.21.0.214/32 \
-        --gateway=172.21.0.1 \
-        $dockerNetworkName
+        --subnet=$dockerNetSub \
+        --ip-range=$dockerNetIpR \
+        --gateway=$dockerNetGwa \
+        $dockerNetName
         else
         echo " Docker network alredy exist !"
         fi
     fi
+    
     # Starting container
     echo "Step 4 : Starting container"
     docker run -itd --name $imgShortName --restart always -p $httpPort:80 -p $httpsPort:443 --privileged $imgName:$imgVers /usr/sbin/init  
 
     # Connect network
-    if [ $dockerNetworkCreate == '1' ]; then
+    if [ $dockerNetCreate == '1' ]; then
         echo "Step 5 : Switching network"
         docker network connect centreon_default $imgShortName
         docker network disconnect bridge $imgShortName
@@ -101,7 +99,14 @@ case "$1" in
     # Remove image
     echo "Step 3 : Remove Image"
     docker rmi $imgName:$imgVers
-    
+
+    # Remove Docker Network
+    if [ $dockerNetClean == "1" ]; then
+        echo " Step 4 : Remove Docker network"
+        docker network rm $dockerNetName
+    else
+        echo " Step 4 : Not remove Docker network"
+    fi
     ;;
 
 *)  echo "Help"
