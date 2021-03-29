@@ -12,13 +12,13 @@ docker network disconnect bridge $imgShortName
 For install :
 
 1 - Edit buildCentreon.sh and edit the variable
-2 - Run buildCentreon.sh
+2 - Run buildCentreon.sh -b
 4 - Once the container is started, connect to it with the command : docker exec -ti $imgShortName bash 
 5 - Run /root/installCentreon.sh
 6 - Finalize the installation by connecting to the url http:\\<your ip>:yourport
 
 For cleaning : 
 
-1 - Use cleanImage.sh for cleaning container and image 
+1 - Use  buildCentreon.sh -b for cleaning container and image 
 
 
