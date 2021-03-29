@@ -26,11 +26,11 @@ httpsPort=''                # Exposed HTTPS port with -p switch  (https://docs.d
 
 **Docker Network (https://docs.docker.com/engine/reference/commandline/network)**
 ```
-dockerNetCreate='1'                 # Docker network create used with switch -b : 0 = No / 1 = Yes
-dockerNetName='centreon_default'    # Docker network Name       / https://docs.docker.com/engine/reference/commandline/network_create/
-dockerNetSub='172.21.0.0/16'        # Docker network subnet     / https://docs.docker.com/engine/reference/commandline/network_create/
-dockerNetIpR='172.21.0.214/32'      # Docker network IP range   / https://docs.docker.com/engine/reference/commandline/network_create/
-dockerNetGwa='172.21.0.1'           # Docker network gateway    / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetCreate=''                  # Docker network create used with switch -b : 0 = No / 1 = Yes
+dockerNetName=''                    # Docker network Name       / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetSub=''                     # Docker network subnet     / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetIpR=''                     # Docker network IP range   / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetGwa=''                     # Docker network gateway    / https://docs.docker.com/engine/reference/commandline/network_create/
 ```
 
 ### Step 2 : Build image
@@ -43,15 +43,15 @@ Build the image with the command : buildCentreon.sh -b
 2. Run ```/root/installCentreon.sh``` script
 3. Finalize the installation by connecting to the url ```http:\\<your ip>``` or ```https:\\<your ip>```
 
-## Clean ImageFor cleaning : 
+## Clean Image : 
 
 ### Step 1 : Variable configuration
 
 Edit buildCentreon.sh and configure variable
 
-**Docker Network (https://docs.docker.com/engine/reference/commandline/network)**
+**## Docker Network (https://docs.docker.com/engine/reference/commandline/network)**
 ```
-dockerNetClean='0'                  # Docker network clean used with switch -c  : 0 = No / 1 = Yes
+dockerNetClean=''                  # Docker network clean used with switch -c  : 0 = No / 1 = Yes
 ```
 
 ### Step 2 : Run Command
