@@ -23,12 +23,12 @@ imgShortName='centreon'         # Friendly image name used with --name switch (h
 httpPort='8080'                 # Exposed HTTP port with -p switch   (https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose)
 httpsPort='4343'                # Exposed HTTPS port with -p switch  (https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose)
 
-# Docker Volume
+## Docker Volume
 #dockerVolumeCreate='1'              # For switch -b : Create Docker Volume  0 = No / 1 = Yes
 #dockerVolumeClean='0'               # For switch -c : Clean Docker Volume   0 = No / 1 = Yes
 dockerVolumeName='centreon_data'
 
-# Docker Network (https://docs.docker.com/engine/reference/commandline/network)
+## Docker Network (https://docs.docker.com/engine/reference/commandline/network)
 dockerNetCreate='1'                 # Docker network create used with switch -b : 0 = No / 1 = Yes
 dockerNetClean='0'                  # Docker network clean used with switch -c  : 0 = No / 1 = Yes
 dockerNetName='centreon_default'    # Docker network Name       / https://docs.docker.com/engine/reference/commandline/network_create/
