@@ -1,4 +1,4 @@
-<img src="https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306" width="500">
+
 <img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" width="500"> 
 <img src="https://www.centos.org/assets/img/centos-logo-white.png">
 
@@ -8,7 +8,7 @@ Work Under Progress......
 
 This script can deploy a Centreon plateforme quickly one Docker. This script is based in centOS 8 and Centreon 20.10
 
-- Centreon
+- <img src="https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306" width="500">
     - [Centreon website](https://www.centreon.com)
     - [Centreon documentation](https://docs.centreon.com)
 
