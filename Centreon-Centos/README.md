@@ -4,9 +4,12 @@ Work Under Progress......
 
 This script can deploy a Centreon plateforme quickly one Docker. This script is based in centOS 8 and Centreon 20.10
 
-Centreon website           https://www.centreon.com
-Centreon documentation     https://docs.centreon.com
-CentOS website             https://www.centos.org
+- Cemtreon
+    - Centreon website           https://www.centreon.com
+    - Centreon documentation     https://docs.centreon.com
+
+-CentOS
+    - CentOS website             https://www.centos.org
 
 ## Build Image :
 
