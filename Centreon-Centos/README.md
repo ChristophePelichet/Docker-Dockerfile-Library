@@ -1,5 +1,7 @@
 ![alt text](https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306)
 
+<img src="https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306" width="250">
+
 # Centreon 20.10 based on Centos 8
 
 Work Under Progress......
