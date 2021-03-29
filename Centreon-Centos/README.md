@@ -9,8 +9,14 @@ Work Under Progress......
 
 ### Step 1 : Variable configuration
 
-**Edit buildCentreon.sh and configure variable**
+Edit buildCentreon.sh and configure variable
 
+**Image**
+```
+imgName=''          # Image Name
+imgVers=''          # Image Version
+imgShortName=''     # Friendly image name used with --name (https://docs.docker.com/engine/reference/commandline/run/#assign-name-and-allocate-pseudo-tty---name--it)
+```
 
 ### Step 2 : Build image
 
