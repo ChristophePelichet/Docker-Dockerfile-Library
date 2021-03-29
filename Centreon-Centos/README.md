@@ -1,4 +1,4 @@
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.logiciel-libre.org%2Fs%2Fcentreon%2F&psig=AOvVaw3X2CPXojkOJ-EpiRZQyGui&ust=1617122932367000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOinw8n61e8CFQAAAAAdAAAAABAD)
+![alt text](https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306)
 
 # Centreon 20.10 based on Centos 8
 
