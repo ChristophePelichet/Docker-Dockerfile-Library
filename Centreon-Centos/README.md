@@ -38,7 +38,7 @@ dockerNetGwa=''                     # Docker network gateway    / https://docs.d
 
 ### Step 2 : Build image
 
-Build the image with the command : buildCentreon.sh -b
+Build the image with the command : ```buildCentreon.sh -b```
 
 ### Step 3 : Install Centreon
 
