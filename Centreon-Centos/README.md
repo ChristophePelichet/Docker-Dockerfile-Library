@@ -1,26 +1,12 @@
-# Centreon 20.10 based on Centos 8 with docker
+# Centreon 20.10 based on Centos 8 with Docker
 
 <img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" width="200"> <img src="https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306" width="200"> 
 
 
 
-
-Work Under Progress......
+## Information
 
 This script can deploy a Centreon plateforme quickly one Docker. This script is based in centOS 8 and Centreon 20.10
-
-
-## Links
-
-- Centreon
-    - [Centreon website](https://www.centreon.com)
-    - [Centreon documentation](https://docs.centreon.com)
-
-- CentOS
-    - [CentOS website](https://www.centos.org)
-
-- Docker
-    - [Docker website](https://www.docker.com/)
 
 ## Build Image :
 
@@ -81,5 +67,17 @@ dockerNetClean=''                  # Docker network clean used with switch -c  :
 - [x] Add script to install centreon (installCentreon.sh)
 - [x] Add Docker network creation
 - [ ] Add Docker volume creation
+
+## Links
+
+- Centreon
+    - [Centreon website](https://www.centreon.com)
+    - [Centreon documentation](https://docs.centreon.com)
+
+- CentOS
+    - [CentOS website](https://www.centos.org)
+
+- Docker
+    - [Docker website](https://www.docker.com/)
 
 
