@@ -12,14 +12,12 @@ Work Under Progress......
 **Edit buildCentreon.sh and edit variable**
 
 
-
-
-
 ### Step 2 : Run script
-2 - Run buildCentreon.sh -b
-4 - Once the container is started, connect to it with the command : docker exec -ti $imgShortName bash 
-5 - Run /root/installCentreon.sh
-6 - Finalize the installation by connecting to the url http:\\<your ip>:yourport
+
+1. Run buildCentreon.sh -b
+2. Once the container is started, connect to it with the command : docker exec -ti $imgShortName bash 
+3. Run /root/installCentreon.sh
+4. Finalize the installation by connecting to the url http:\\<your ip>:yourport
 
 ## Clean ImageFor cleaning : 
 
