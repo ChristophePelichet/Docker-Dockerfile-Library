@@ -2,8 +2,11 @@
 
 Work Under Progress......
 
+This script can deploy a Centreon plateforme quickly one Docker. This script is based in centOS 8 and Centreon 20.10
 
-
+Centreon website           https://www.centreon.com
+Centreon documentation     https://docs.centreon.com
+CentOS website             https://www.centos.org
 
 ## Build Image :
 
@@ -56,5 +59,13 @@ dockerNetClean=''                  # Docker network clean used with switch -c  :
 
 ### Step 2 : Run Command
 - Use  buildCentreon.sh -c for cleaning container and image 
+
+
+### Task Lists
+
+- [x] First Release
+- [x] Add script to install centreon (installCentreon.sh)
+- [x] Add Docker network creation
+- [ ] Add Docker volume creation
 
 
