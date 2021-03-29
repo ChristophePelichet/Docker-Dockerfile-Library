@@ -18,9 +18,9 @@ Build the image with the command : buildCentreon.sh -b
 
 ### Step 3 : Install Centreon
 
-Once the container is started, connect to it with the command ``` docker exec -ti **<$imgShortName>** bash ```
-3. Run /root/installCentreon.sh
-4. Finalize the installation by connecting to the url http:\\<your ip>:yourport
+1. Once the container is started, connect to it with the command ``` docker exec -ti $imgShortName bash ```
+2. Run ```/root/installCentreon.sh``` script
+3. Finalize the installation by connecting to the url ```http:\\<your ip>:yourport```
 
 ## Clean ImageFor cleaning : 
 
