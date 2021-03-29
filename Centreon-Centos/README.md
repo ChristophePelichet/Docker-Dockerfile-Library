@@ -1,7 +1,6 @@
 # Centreon 20.10 based on Centos 8 with docker
 
-<img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" width="200"> 
-<img src="https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306" width="200"> 
+<img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" width="200"> <img src="https://static.centreon.com/wp-content/uploads/2020/04/centreon-logo.png?x61306" width="200"> 
 
 
 
