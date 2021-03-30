@@ -23,15 +23,15 @@ imgShortName='centreon'         # Friendly image name used with --name switch (h
 httpPort='8080'                 # Exposed HTTP port with -p switch   (https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose)
 httpsPort='4343'                # Exposed HTTPS port with -p switch  (https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose)
 
-## Docker Volume
-#dockerVolumeCreate='1'              # For switch -b : Create Docker Volume  0 = No / 1 = Yes
-#dockerVolumeClean='0'               # For switch -c : Clean Docker Volume   0 = No / 1 = Yes
-dockerVolumeName='centreon_data'
+## Docker volume (https://docs.docker.com/engine/reference/commandline/volume)
+dockerVolCreate='1'                 # Docker volume create used with switch -b : Create Docker Volume  0 = No / 1 = Yes
+dockerVolClean='0'                  # Docker volume clean used with switch -c  : Clean Docker Volume   0 = No / 1 = Yes
+dockerVolName='centreon_data'       # Docker volume name    /  https://docs.docker.com/engine/reference/commandline/volume_create/ 
 
-## Docker Network (https://docs.docker.com/engine/reference/commandline/network)
+## Docker network (https://docs.docker.com/engine/reference/commandline/network)
 dockerNetCreate='1'                 # Docker network create used with switch -b : 0 = No / 1 = Yes
 dockerNetClean='0'                  # Docker network clean used with switch -c  : 0 = No / 1 = Yes
-dockerNetName='centreon_default'    # Docker network Name       / https://docs.docker.com/engine/reference/commandline/network_create/
+dockerNetName='centreon_default'    # Docker network name       / https://docs.docker.com/engine/reference/commandline/network_create/
 dockerNetSub='172.21.0.0/16'        # Docker network subnet     / https://docs.docker.com/engine/reference/commandline/network_create/
 dockerNetIpR='172.21.0.214/32'      # Docker network IP range   / https://docs.docker.com/engine/reference/commandline/network_create/
 dockerNetGwa='172.21.0.1'           # Docker network gateway    / https://docs.docker.com/engine/reference/commandline/network_create/
@@ -50,8 +50,20 @@ case "$1" in
     docker build -t $imgName:$imgVers .
 
     # Create Docker volume
-    #echo "Step 2 : Create Docker data volume"
-    #docker volume create $volumeName
+    if [ $dockerVolCreat == '0' ]; then
+        echo "Step 3 : No creation of a Docker volume"
+    else 
+        echo "Step 3 : Create Docker volume"
+
+        # Check if Docker volume exist
+        resultDockerVolExist=$(docker volume ls | cut -d ' ' -fg | grep -i $dockerVolName)
+
+        if [ -z $resultDockerVolExist ]; then
+        docker volume create $dockerVolName
+        else
+        echo " Docker network volume exist !"
+        fi
+    fi
 
     # Create Docker network
     if [ $dockerNetCreate == '0' ]; then
@@ -89,23 +101,31 @@ case "$1" in
 -c) echo "Remove and clean Centreon image"
 
     # Stop container
-    echo "Step 1 : Stop container"
+    echo "Step 1 : Stoping container"
     docker stop $imgShortName
 
     # Remove container
-    echo "Step 2 : Remove container"
+    echo "Step 2 : Removing container"
     docker rm $imgShortName
 
     # Remove image
-    echo "Step 3 : Remove Image"
+    echo "Step 3 : Removing Image"
     docker rmi $imgName:$imgVers
+
+    # Remove volume
+    if [ $dockerVolClean == "1" ]; then 
+        echo " Step 4 : Removing Docker volume"
+        docker volume rm $dockerVolName
+    else
+        echo " Step 4 : Not removing Docker volume"
+    fi
 
     # Remove Docker Network
     if [ $dockerNetClean == "1" ]; then
-        echo " Step 4 : Remove Docker network"
+        echo " Step 5 : Removing Docker network"
         docker network rm $dockerNetName
     else
-        echo " Step 4 : Not remove Docker network"
+        echo " Step 5 : Not removing Docker network"
     fi
     ;;
 
