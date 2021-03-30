@@ -78,6 +78,7 @@ dockerNetClean=''                  # Docker network clean used with switch -c  :
 - [x] Add script to install centreon (installCentreon.sh)
 - [x] Add Docker network creation
 - [x] Add Docker volume creation
+- [ ] Add persistent data variable ($dockerMntVol)
 
 ## Links
 
