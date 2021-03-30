@@ -27,6 +27,12 @@ httpPort=''                 # Exposed HTTP port with -p switch   (https://docs.d
 httpsPort=''                # Exposed HTTPS port with -p switch  (https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose)
 ```
 
+**## Docker volume (https://docs.docker.com/engine/reference/commandline/volume)**
+```
+dockerVolCreate=''                  # Docker volume create used with switch -b : Create Docker Volume  0 = No / 1 = Yes
+dockerVolName=''                    # Docker volume name    /  https://docs.docker.com/engine/reference/commandline/volume_create/ 
+```
+
 **## Docker Network (https://docs.docker.com/engine/reference/commandline/network)**
 ```
 dockerNetCreate=''                  # Docker network create used with switch -b : 0 = No / 1 = Yes
@@ -52,6 +58,11 @@ Build the image with the command : ```buildCentreon.sh -b```
 
 Edit buildCentreon.sh and configure variable
 
+**## Docker volume (https://docs.docker.com/engine/reference/commandline/volume)**
+```
+dockerVolClean=''                  # Docker volume clean used with switch -c  : Clean Docker Volume   0 = No / 1 = Yes
+```
+
 **## Docker Network (https://docs.docker.com/engine/reference/commandline/network)**
 ```
 dockerNetClean=''                  # Docker network clean used with switch -c  : 0 = No / 1 = Yes
@@ -66,7 +77,7 @@ dockerNetClean=''                  # Docker network clean used with switch -c  :
 - [x] First Release
 - [x] Add script to install centreon (installCentreon.sh)
 - [x] Add Docker network creation
-- [ ] Add Docker volume creation
+- [x] Add Docker volume creation
 
 ## Links
 
